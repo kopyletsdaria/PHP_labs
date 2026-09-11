@@ -26,3 +26,8 @@
 2. Виконайте команду: 
    ```bash
    php -S localhost:8000
+3. Відкрийте в браузері http://localhost:8000
+
+## Результат
+<img width="2053" height="996" alt="image" src="https://github.com/user-attachments/assets/e4df2f5f-cf30-4933-a692-21f94934d39b" />
+
