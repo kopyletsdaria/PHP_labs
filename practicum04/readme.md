@@ -45,7 +45,8 @@
 При натисканні "Тільки невиконані":
 
 <img width="1256" height="592" alt="image" src="https://github.com/user-attachments/assets/b7806db4-66a0-4dff-acf1-d5999e7fdd77" />
-<img width="926" height="221" alt="Снимок экрана 2026-10-07 160333" src="https://github.com/user-attachments/assets/3748f28f-592b-468d-a57c-e8d958b5fb67" />
+<img width="880" height="222" alt="image" src="https://github.com/user-attachments/assets/588be8d3-3863-4429-a4cb-c81f6a59675f" />
+
 
 
 
