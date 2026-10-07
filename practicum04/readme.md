@@ -33,11 +33,20 @@
    php -S localhost:8000
     ```
 ## Результат
-<img width="1392" height="772" alt="image" src="https://github.com/user-attachments/assets/b4e3c3ec-0087-487b-98b4-d57e8dfa7dba" />
-<img width="1173" height="661" alt="image" src="https://github.com/user-attachments/assets/cdc15212-38a8-4f6d-abfc-cc6a311e0309" />
-<img width="886" height="590" alt="image" src="https://github.com/user-attachments/assets/5c47205d-92a7-41e0-b1fb-1048b733606c" />
-<img width="1177" height="681" alt="image" src="https://github.com/user-attachments/assets/69cc662e-58a1-42d2-8adb-b41fd819536a" />
-<img width="926" height="221" alt="image" src="https://github.com/user-attachments/assets/00f257d2-2f9c-486f-9175-f0a9afdf2137" />
+<img width="1323" height="630" alt="image" src="https://github.com/user-attachments/assets/116d71d9-5ead-4843-84f4-abfa59ab8b4a" />
+<img width="1170" height="646" alt="image" src="https://github.com/user-attachments/assets/904669fd-a4c9-45e5-9bd2-2fc4ba51da6b" />
+<img width="882" height="502" alt="image" src="https://github.com/user-attachments/assets/46ec14b3-7a12-469f-b942-f7c8edbd1fa8" />
+<img width="1116" height="685" alt="image" src="https://github.com/user-attachments/assets/90cada7c-643a-44c5-b3c0-dac3963a36bc" />
+
+При натисканні "Виконати":
+
+<img width="1171" height="591" alt="image" src="https://github.com/user-attachments/assets/645e9960-f397-41f4-8188-86b32895dc77" />
+
+При натисканні "Тільки невиконані":
+
+<img width="1256" height="592" alt="image" src="https://github.com/user-attachments/assets/b7806db4-66a0-4dff-acf1-d5999e7fdd77" />
+
+
 
 
 
