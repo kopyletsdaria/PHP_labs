@@ -1,12 +1,17 @@
 <?php
 require_once 'db.php'; 
+
 $priorityFilter = $_GET['priority'] ?? '';
-if ($priorityFilter) {
-    $stmt = $pdo->prepare("SELECT * FROM tasks WHERE priority = :priority");
+$showPending = isset($_GET['pending']) && $_GET['pending'] == '1';
+if ($showPending) {
+    $stmt = $pdo->query("SELECT * FROM tasks WHERE done = 0 ORDER BY due_date ASC");
+} elseif ($priorityFilter) {
+    $stmt = $pdo->prepare("SELECT * FROM tasks WHERE priority = :priority ORDER BY due_date ASC");
     $stmt->execute([':priority' => $priorityFilter]);
 } else {
     $stmt = $pdo->query("SELECT * FROM tasks ORDER BY due_date ASC");
 }
+
 $tasks = $stmt->fetchAll(); 
 ?>
 <!DOCTYPE html>
@@ -32,15 +37,17 @@ $tasks = $stmt->fetchAll();
 
         <h2>Список завдань</h2>
         <div class="filter-block">
-            <form action="index.php" method="GET">
+            <form action="index.php" method="GET" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
                 <label>Фільтр:</label>
                 <select name="priority">
-                    <option value="">Усі</option>
+                    <option value="">Усі пріоритети</option>
                     <option value="Низький" <?= $priorityFilter == 'Низький' ? 'selected' : '' ?>>Низький</option>
                     <option value="Середній" <?= $priorityFilter == 'Середній' ? 'selected' : '' ?>>Середній</option>
                     <option value="Високий" <?= $priorityFilter == 'Високий' ? 'selected' : '' ?>>Високий</option>
                 </select>
-                <button type="submit" class="submit-btn" style="width: auto; padding: 5px 15px;">Застосувати</button>
+                <button type="submit" class="submit-btn" style="width: auto; padding: 5px 15px;">Шукати</button>
+                <a href="index.php?pending=1" class="submit-btn" style="text-decoration: none; background-color: #f48fb1; padding: 5px 15px;">Тільки невиконані</a>
+                <a href="index.php" class="submit-btn" style="text-decoration: none; background-color: #ccc; color: #333; padding: 5px 15px;">Скинути</a>
             </form>
         </div>
 
