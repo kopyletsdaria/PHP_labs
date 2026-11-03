@@ -27,3 +27,13 @@
 2. Відкрийте термінал у папці проєкту та запустіть сервер:
    ```bash
    php -S localhost:8000
+
+
+## Результат
+<img width="1457" height="741" alt="image" src="https://github.com/user-attachments/assets/25814eb0-d254-446c-893a-234973ae7d31" />\
+<img width="1167" height="592" alt="image" src="https://github.com/user-attachments/assets/0c74cd4a-e354-4f7f-b513-1dceeddd61cd" />
+Також автоматично завдання додаються в базу даних:
+<img width="881" height="226" alt="image" src="https://github.com/user-attachments/assets/186b468c-8a4c-4153-aff3-884db2550729" />
+
+
+
