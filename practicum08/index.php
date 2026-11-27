@@ -44,6 +44,7 @@ $csrfToken = csrfToken();
                     <th>Назва</th>
                     <th>Дедлайн</th>
                     <th>Пріоритет</th>
+                    <th>Дія</th>
                 </tr>
             </thead>
             <tbody id="results"></tbody>
