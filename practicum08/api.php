@@ -329,6 +329,18 @@ function completeTask(PDO $pdo, mixed $rawId): never
 
     respond(200, ['success' => true, 'data' => findTask($pdo, $id)]);
 }
+function deleteTask(PDO $pdo, mixed $rawId): never
+{
+    $id = parseId($rawId);
+
+    $stmt = $pdo->prepare('DELETE FROM tasks WHERE id = :id');
+    $stmt->execute([':id' => $id]);
+
+    if ($stmt->rowCount() === 0) {
+        fail(404, "Завдання з id={$id} не знайдено");
+    }
+    respond(200, ['success' => true, 'data' => ['id' => $id]]);
+}
 
 // Єдина точка входу та маршрутизація 
 
@@ -372,8 +384,10 @@ try {
             createTask($pdo, $input);
         } elseif ($action === 'complete') {
             completeTask($pdo, $_GET['id'] ?? ($input['id'] ?? null));
+        } elseif ($action === 'delete') {
+            deleteTask($pdo, $_GET['id'] ?? ($input['id'] ?? null));
         } else {
-            fail(400, 'Невідома дія. Підтримується: complete', 'action');
+            fail(400, 'Невідома дія. Підтримуються: complete, delete', 'action');
         }
     } else {
         header('Allow: GET, POST');
