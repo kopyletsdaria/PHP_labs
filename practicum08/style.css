@@ -11,3 +11,7 @@ th { background-color: #fce4ec; color: #d81b60; font-weight: bold; }
 tr:hover { background-color: #fff0f5; }
 .done-row td { color: #999; text-decoration: line-through; background-color: #f9f9f9; }
 input[type="checkbox"] { transform: scale(1.5); accent-color: #d81b60; cursor: pointer; }
+td button { padding: 6px 14px; background-color: #fce4ec; color: #d81b60; border: 1px solid #f8bbd0; border-radius: 8px; cursor: pointer; font-family: 'Times New Roman', Times, serif; font-size: 15px; transition: background-color 0.2s, color 0.2s; }
+td button:hover { background-color: #d81b60; color: white; border-color: #d81b60; }
+.done-row td button { background-color: #f1f1f1; color: #999; border-color: #ddd; }
+.done-row td button:hover { background-color: #ad1457; color: white; border-color: #ad1457; }
