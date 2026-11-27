@@ -56,19 +56,19 @@ if ($priority !== null && (!is_string($priority) || !in_array($priority, PRIORIT
 
 **Перевірка payload у фільтрі `priority` (очікується `400`):**
 ```bash
-curl -i -G "http://localhost:8000/api.php?resource=tasks" --data-urlencode "priority=' OR '1'='1"
+curl.exe -i -G "http://localhost:8000/api.php?resource=tasks" --data-urlencode "priority=' OR '1'='1"
 ```
 <img width="1446" height="362" alt="image" src="https://github.com/user-attachments/assets/c12f3e85-f0f2-42db-8cb7-85e6c2d9652c" />
 
 **Перевірка payload в `id` (очікується `400`):**
 ```bash
-curl -i "http://localhost:8000/api.php?resource=tasks&id=1%20OR%201%3D1"
+curl.exe -i "http://localhost:8000/api.php?resource=tasks&id=1%20OR%201%3D1"
 ```
 <img width="1406" height="330" alt="image" src="https://github.com/user-attachments/assets/608ce537-63a5-4e16-9d5c-f6827dbaa08d" />
 
 **Payload у полі `title` (підготовлений запит зберігає його як звичайний текст, таблиця не видаляється).** Спочатку отримайте токен (див. крок 3), потім:
 ```bash
-curl -i -b cookies.txt -X POST "http://localhost:8000/api.php?resource=tasks" -H "X-CSRF-Token: ТОКЕН" --data-urlencode "title=x'); DROP TABLE tasks;--" -d "due_date=2026-12-01&priority=Високий"
+curl.exe -i -b cookies.txt -X POST "http://localhost:8000/api.php?resource=tasks" -H "X-CSRF-Token: ТОКЕН" --data-urlencode "title=x'); DROP TABLE tasks;--" -d "due_date=2026-12-01&priority=Високий"
 ```
 <img width="1406" height="487" alt="image" src="https://github.com/user-attachments/assets/0721a99e-5ce2-4149-825f-f00afe9707c8" />
 
@@ -127,13 +127,13 @@ Cookie сесії має прапорці `HttpOnly` і `SameSite=Lax` (вкла
 
 **Отримати токен і сесію (токен скопіювати з відповіді):**
 ```bash
-curl -i -c cookies.txt "http://localhost:8000/api.php?resource=csrf"
+curl.exe -i -c cookies.txt "http://localhost:8000/api.php?resource=csrf"
 ```
 <img width="1412" height="422" alt="image" src="https://github.com/user-attachments/assets/1f1b474e-1981-4865-b67b-3094406a79fd" />
 
 **Без токена -> `403`:**
 ```bash
-curl -i -X POST "http://localhost:8000/api.php?resource=tasks" -d "title=Hack&due_date=2026-12-01&priority=Високий"
+curl.exe -i -X POST "http://localhost:8000/api.php?resource=tasks" -d "title=Hack&due_date=2026-12-01&priority=Високий"
 ```
 <img width="1396" height="447" alt="image" src="https://github.com/user-attachments/assets/67c84fcd-13e5-4dc4-a1f4-b23243f9161d" />
 
@@ -214,7 +214,7 @@ curl.exe -i "http://localhost:8000/api.php?resource=tasks&action=complete&id=5"
 
 **Перевірка:** тимчасово вкажіть у `db.php` неправильну назву бази (наприклад, `dbname=nonexistent`) і виконайте запит. Клієнт отримує `500` із загальним повідомленням, а текст винятку з'являється лише в консолі, де запущено сервер. Після перевірки поверніть правильну назву.
 ```bash
-curl -i "http://localhost:8000/api.php?resource=tasks"
+curl.exe -i "http://localhost:8000/api.php?resource=tasks"
 ```
 <img width="1192" height="365" alt="image" src="https://github.com/user-attachments/assets/58131390-acc6-42d6-8406-023c83ab7773" />
 
