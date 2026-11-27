@@ -67,6 +67,7 @@ function renderTable(tasks) {
             <td>${escapeHTML(task.title)}</td>
             <td>${escapeHTML(task.due_date)}</td>
             <td>${escapeHTML(task.priority)}</td>
+            <td><button type="button" onclick="deleteTask(${Number(task.id)}, this.closest('tr'))">Видалити</button></td>
         `;
         resultsContainer.appendChild(tr);
     });
@@ -84,7 +85,18 @@ async function completeTask(id, rowElement) {
         rowElement.querySelector('input[type="checkbox"]').checked = false;
     }
 }
-
+async function deleteTask(id, rowElement) {
+    if (!confirm('Видалити це завдання?')) {
+        return;
+    }
+    try {
+        await apiRequest(`${API_URL}&action=delete&id=${id}`, { method: 'POST' });
+        rowElement.remove();
+        messageBox.innerText = '';
+    } catch (error) {
+        messageBox.innerText = error.message;
+    }
+}
 function escapeHTML(str) {
     const div = document.createElement('div');
     div.innerText = str;
